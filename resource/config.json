@@ -1,0 +1,33 @@
+{
+    "app": {
+      "name": "tokopedia-scraper",
+      "version": "1.0.0",
+      "env": "dev"
+    },
+    "infrastructure": {
+      "database": {
+        "dialect": "postgres",
+        "host": "localhost:5432",
+        "username": "postgres",
+        "password": "12345AA",
+        "dbName": "scraperdb",
+        "migrationPath" : "./resource/sql/"
+      },
+      "log": {
+        "filename": "log-%s.log",
+        "path": "log/%s",
+        "stdout": false
+      }
+    },
+    "scrape": {
+      "worker" : 8,
+      "web": {
+        "baseUrl": "https://www.tokopedia.com",
+        "pathToScrap": "/p/handphone-tablet/handphone?ob=5&page=%d"
+      },
+      "output": {
+        "filename": "%s/%s-products.csv",
+        "path": "output"
+      }
+    }
+  }
